@@ -15,5 +15,8 @@ node_modules
 # .DS_Store is only for Mac users
 **/.DS_Store
 
+# not needed
 README.md 
 
+# ignore file
+pnpm-lock.yaml
