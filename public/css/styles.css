@@ -3,6 +3,17 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  
+}
+/*
+body {
+  background-image: url('../images/site/small_check.jpg');
+}
+*/
+
+h2 {
+  font-size: 15px;
+  font-weight: bolder;
 }
 
 title,a:link, a:visited {
@@ -49,4 +60,40 @@ nav ul {
 .comments li {
   margin-left: -12%;
   margin-top: 10px;
+}
+
+.upper_section {
+  background-image: url('../images/vehicles/delorean-tn.jpg');
+  width: 225px;
+  height: 100px;
+  background-repeat: no-repeat;
+ 
+}
+
+.box {
+  width: 40%;
+  background-color: rgba(255 255 255 / 0.5);
+  color:rgb(0, 152, 172);
+  font-weight: bolder;
+}
+
+.capacitor {
+  background-repeat: none;
+  background-image: url('../images/upgrades/flux-cap.png');
+  
+}
+
+.decals {
+  background-image: url('../images/upgrades/flame.jpg');
+  background-repeat: none;
+}
+
+.stickers {
+  background-image: url('../images/upgrades/bumper_sticker.jpg');
+  background-repeat: no-repeat;
+}
+
+.caps {
+  background-image: url('../images/upgrades/hub-cap.jpg');
+  background-repeat: none;
 }
