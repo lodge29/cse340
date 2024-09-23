@@ -16,7 +16,7 @@ h2 {
   font-weight: bolder;
 }
 
-title,a:link, a:visited {
+title, a:link, a:visited {
   color: black;
   text-decoration: none;
 }
@@ -29,6 +29,7 @@ title,a:link, a:visited {
 #tools {
   float: right;
   font-size: 10px;
+  color: grey;
 }
 
 #wrapper {
@@ -47,53 +48,157 @@ nav li {
   padding: 10px;
   color: white;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 10px;
   width: 20%;
   text-align: center;
 }
 
 nav ul {
+  background-color: blue;
   display: flex;
-  margin-left: -20%;
+  padding-inline-start: 0;
 }
-
+.comments ul {
+  margin-left: -25px;
+}
 .comments li {
-  margin-left: -12%;
+  font-size: 11px;
   margin-top: 10px;
 }
 
 .upper_section {
   background-image: url('../images/vehicles/delorean-tn.jpg');
-  width: 225px;
-  height: 100px;
+  background-size: 90%;
+  width: 100%;
+  height: 110px;
   background-repeat: no-repeat;
- 
+}
+
+.box > p > img {
+  width: 70%;
 }
 
 .box {
-  width: 40%;
+  width:40%;
   background-color: rgba(255 255 255 / 0.5);
   color:rgb(0, 152, 172);
-  font-weight: bolder;
+}
+
+.dmc_advertise {
+  font-weight: bold;
+}
+
+.upgrades {
+  width: 100%;
+  text-align: center;
+}
+
+.capacitor_decals {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: 70px;
 }
 
 .capacitor {
-  background-repeat: none;
-  background-image: url('../images/upgrades/flux-cap.png');
-  
+  width:110px;
+  display: block;
+}
+
+.capacitor_img_div {
+  background-color: rgb(29, 167, 191);
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.capacitor_img_div > img {
+  width: 50px;
+  width: 50px;
 }
 
 .decals {
-  background-image: url('../images/upgrades/flame.jpg');
-  background-repeat: none;
+  width:110px;
+  display: block;
+  
 }
 
-.stickers {
-  background-image: url('../images/upgrades/bumper_sticker.jpg');
-  background-repeat: no-repeat;
+.decals_img_div {
+  background-color: rgb(29, 167, 191);
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.decals_img_div > img {
+  width: 50px;
+  width: 50px;
+}
+
+.sticker_caps {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: 70px;
+  margin-top: 30px;
+}
+
+.sticker {
+  width:110px;
+  display: block;
+}
+
+.sticker_img_div {
+  background-color: rgb(29, 167, 191);
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticker_img_div > img {
+  width: 50px;
+  width: 50px;
 }
 
 .caps {
-  background-image: url('../images/upgrades/hub-cap.jpg');
-  background-repeat: none;
+  width:110px;
+  display: block;
+  
+}
+
+.caps_img_div {
+  background-color: rgb(29, 167, 191);
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caps_img_div > img {
+  width: 50px;
+  width: 50px;
+}
+
+footer {
+  margin-top: 40px;
+  
 }
