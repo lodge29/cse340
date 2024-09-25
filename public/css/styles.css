@@ -5,200 +5,239 @@
   box-sizing: border-box;
   
 }
-/*
-body {
-  background-image: url('../images/site/small_check.jpg');
-}
-*/
 
-h2 {
-  font-size: 15px;
-  font-weight: bolder;
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-title, a:link, a:visited {
+#wrapper {
+  max-width: 100%;
+}
+
+.siteName {
+  font-size:1.5em;
+  font-weight: bold;
+}
+ 
+.siteName > a:link, a:visited {
   color: black;
   text-decoration: none;
 }
 
-.siteName {
-  font-size:19px;
-  font-weight: bold;
-}
- 
-#tools {
+#tools, #tools > a:link, #tools > a:visited {
   float: right;
   font-size: 10px;
   color: grey;
+  text-decoration: none;
 }
 
-#wrapper {
-  width: 225px;
-  margin: 0 auto;
-}
 
 nav {
-  background-color: rgb(118, 48, 48);
+  background-color: black;
   width: 100%;
 }
 
-nav li {
-  display: inline-block;
-  background-color:black;
-  padding: 10px;
+
+nav > ul {
+  display: flex;
+  background-color: black;
+  padding-inline-start: 0;
+}
+
+nav > ul > li {
   color: white;
-  text-decoration: none;
-  font-size: 10px;
+  font-size: 1em;
   width: 20%;
+  list-style-type: none;
+  padding: 8px;
   text-align: center;
 }
 
-nav ul {
-  background-color: blue;
-  display: flex;
-  padding-inline-start: 0;
+.mid_section {
+ width: 100%;
+ padding-inline-start: 0;
 }
-.comments ul {
-  margin-left: -25px;
+
+.ms_reviews_div {
+  font-size: 1em;
 }
-.comments li {
-  font-size: 11px;
+
+.ms_reviews_div ul {
+ padding-inline-start: 14px;
+  
+}
+
+.ms_reviews_div li {
   margin-top: 10px;
 }
 
 .upper_section {
   background-image: url('../images/vehicles/delorean-tn.jpg');
-  background-size: 90%;
-  width: 100%;
-  height: 110px;
   background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  max-width: 70vw;
+  height: 30vh;
 }
 
-.box > p > img {
-  width: 70%;
-}
 
-.box {
-  width:40%;
+.us_box {
+  font-size: 1.2em;
+  max-width: 31vw;
+ 
   background-color: rgba(255 255 255 / 0.5);
   color:rgb(0, 152, 172);
 }
 
-.dmc_advertise {
-  font-weight: bold;
+.us_box span {
+  font-weight: bolder;
 }
 
-.upgrades {
-  width: 100%;
+.us_box img {
+  width: 12vh;
+}
+
+/*
+LOWER SECTION
+*/
+
+.ls_1 {
+  display:flex;
+  justify-content: space-between;
+}
+
+.upgrades_link {
   text-align: center;
 }
 
-.capacitor_decals {
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  height: 70px;
-}
-
 .capacitor {
-  width:110px;
-  display: block;
+  width: 48%;
+  height: 8vh;
 }
 
-.capacitor_img_div {
-  background-color: rgb(29, 167, 191);
-  border-style: solid;
-  border-color: black;
-  border-width: thin;
+.capacitor_bk {
+  display: flex;
+  justify-content:space-around;
+  align-content: space-around;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.capacitor_img_div > img {
-  width: 50px;
-  width: 50px;
+  background-color: blanchedalmond;
+  padding: 5px;
 }
 
 .decals {
-  width:110px;
-  display: block;
-  
+  width: 48%;
+  height: 8vh;
 }
 
-.decals_img_div {
-  background-color: rgb(29, 167, 191);
-  border-style: solid;
-  border-color: black;
-  border-width: thin;
+.decals_bk {
+  display: flex;
+  justify-content:space-around;
+  align-content: space-around;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: red;
+  padding: 5px;
 }
 
-.decals_img_div > img {
-  width: 50px;
-  width: 50px;
-}
 
-.sticker_caps {
+.ls_2 {
   display: flex;
-  justify-content: center;
   justify-content: space-between;
-  height: 70px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-.sticker {
-  width:110px;
-  display: block;
+.stickers {
+
+  width: 48%;
+  height: 8vh;
 }
 
-.sticker_img_div {
-  background-color: rgb(29, 167, 191);
-  border-style: solid;
-  border-color: black;
-  border-width: thin;
+.stickers_bk {
+  display: flex;
+  justify-content:space-around;
+  align-content: space-around;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sticker_img_div > img {
-  width: 50px;
-  width: 50px;
+  background-color: grey;
+  padding: 5px;
 }
 
 .caps {
-  width:110px;
-  display: block;
-  
+  width: 48%;
+  height: 8vh;
 }
 
-.caps_img_div {
-  background-color: rgb(29, 167, 191);
-  border-style: solid;
-  border-color: black;
-  border-width: thin;
+.caps_bk {
+  display: flex;
+  justify-content:space-around;
+  align-content: space-around;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.caps_img_div > img {
-  width: 50px;
-  width: 50px;
+  background-color: black;
+  padding: 5px;
 }
 
 footer {
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 700px) {
   
+  body {
+    background-image: url('../images/site/checkerboard.jpg');
+   
+    background-position: center;
+  }
+  
+  #wrapper {
+    background-color: white;
+    width: 80vw;
+    
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 20px;
+  }
+
+  .siteName {
+    font-size: 3em;
+  }
+
+  .us_title {
+    font-size:2em;
+  }
+  
+  #tools, #tools > a:link, #tools > a:visited {
+    font-size: 1em;
+  }
+
+  nav {
+    font-size: 2em;
+  }
+  
+  .flex_div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+
+  .mid_section, .lower_section {
+    width: 35vw;
+    font-size: 1.5em;
+  }
+
+  .ls_2 {
+    margin-top: 30px;
+  }
+
+ footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+ }
 }
