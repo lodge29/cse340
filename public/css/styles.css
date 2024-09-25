@@ -3,16 +3,28 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  
+
 }
+
+/* 
+* FONT
+*/
 
 * {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/*
+* WRAPPER
+*/
+
 #wrapper {
   max-width: 100%;
 }
+
+/*
+* SITE NAME, MY ACCOUNT, NAV
+*/
 
 .siteName {
   font-size:1.5em;
@@ -27,7 +39,7 @@
 #tools, #tools > a:link, #tools > a:visited {
   float: right;
   font-size: 10px;
-  color: grey;
+  color: black;
   text-decoration: none;
 }
 
@@ -53,40 +65,34 @@ nav > ul > li {
   text-align: center;
 }
 
-.mid_section {
- width: 100%;
- padding-inline-start: 0;
-}
-
-.ms_reviews_div {
-  font-size: 1em;
-}
-
-.ms_reviews_div ul {
- padding-inline-start: 14px;
-  
-}
-
-.ms_reviews_div li {
-  margin-top: 10px;
-}
+/*
+* UPPER SECTION (us.)
+*/
 
 .upper_section {
-  background-image: url('../images/vehicles/delorean-tn.jpg');
-  background-repeat: no-repeat;
-  background-size: 80%;
-  background-position: center;
-  max-width: 70vw;
-  height: 30vh;
+  position: relative;
+  max-width: 100vw;
+  height: auto;
+}
+
+.upper_section > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80vw;
+  height: 100%;
 }
 
 
 .us_box {
-  font-size: 1.2em;
-  max-width: 31vw;
- 
-  background-color: rgba(255 255 255 / 0.5);
+  font-size: 3vw;
+  max-width: 30vw;
+  min-height: 1vh;
   color:rgb(0, 152, 172);
+  background-color: rgba(255 255 255 / 0.9);
+
+  position: absolute;
+  left: 30px;
+  top: 1px;
 }
 
 .us_box span {
@@ -94,8 +100,30 @@ nav > ul > li {
 }
 
 .us_box img {
-  width: 12vh;
+  max-width: 15vw;
 }
+
+/*
+* MID SECTION (ms.)
+*/
+
+.mid_section {
+  width: 100%;
+  padding-inline-start: 0;
+ }
+ 
+ .ms_reviews_div {
+   font-size: 1em;
+ }
+ 
+ .ms_reviews_div ul {
+  padding-inline-start: 14px;
+   
+ }
+ 
+ .ms_reviews_div li {
+   margin-top: 10px;
+ }
 
 /*
 LOWER SECTION
@@ -140,7 +168,6 @@ LOWER SECTION
   padding: 5px;
 }
 
-
 .ls_2 {
   display: flex;
   justify-content: space-between;
@@ -182,11 +209,15 @@ footer {
   margin-top: 30px;
 }
 
+/*
+* larger screens
+*/
+
 @media screen and (min-width: 700px) {
   
   body {
     background-image: url('../images/site/checkerboard.jpg');
-   
+    background-size: 60%;
     background-position: center;
   }
   
