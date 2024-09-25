@@ -78,21 +78,19 @@ nav > ul > li {
 .upper_section > img {
   display: block;
   margin: 0 auto;
-  max-width: 80vw;
+  max-width: 70vw;
   height: 100%;
 }
 
 
 .us_box {
   font-size: 3vw;
-  max-width: 30vw;
-  min-height: 1vh;
+  max-width: 100vw;
   color:rgb(0, 152, 172);
   background-color: rgba(255 255 255 / 0.9);
-
   position: absolute;
   left: 30px;
-  top: 1px;
+  top: 0;
 }
 
 .us_box span {
@@ -248,9 +246,17 @@ footer {
   }
 
   nav {
-    font-size: 2em;
+    font-size: 1em;
   }
   
+  .us_box {
+    font-size: 2em;
+    left: 5vw;
+  }
+  .us_box img {
+    max-width: 150px;
+  }
+
   .flex_div {
     display: flex;
     flex-direction: row-reverse;
