@@ -37,12 +37,10 @@ ON inventory.classification_id = classification.classification_id
 WHERE classification_name = 'Sport';
 
 
-- TASK 1.6
+-- TASK 1.6
 -- Update all records in the inventory table to add "/vehicles" to the middle of the file path in the inv_image and inv_thumbnail columns using a single query.
 UPDATE inventory
-SET inv_image = REPLACE(inv_image,SUBSTRING(inv_image,1,7), CONCAT(SUBSTRING(inv_image,1,7), '/vehicles'));
+SET inv_image = REPLACE(inv_image,SUBSTRING(inv_image,1,7), CONCAT(SUBSTRING(inv_image,1,7), '/vehicles'))
 inv_thumbnail = REPLACE(inv_thumbnail,SUBSTRING(inv_thumbnail,1,7), CONCAT(SUBSTRING(inv_thumbnail,1,7), '/vehicles'));
 */
 
-SELECT inv_image, inv_thumbnail FROM inventory
-ORDER BY inv_id ASC;
