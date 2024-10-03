@@ -13,6 +13,7 @@ const static = require("./routes/static")
 
 // week 3
 const baseController = require("./controllers/baseController")
+const inventoryRoute = require("./routes/inventoryRoute")
 
 
 /* ***********************
@@ -28,18 +29,18 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 
 // Index route
-
+/*
 app.get("/", function(req, res){
   res.render("index", {title: "Home"})
 })
+*/
 
+// week 3
+app.get("/", baseController.buildHome)
 
 // week 3
 // Inventory routes
 app.use("/inv", inventoryRoute)
-
-// week 3
-app.get("/", baseController.buildHome)
 
 /* ***********************
  * Local Server Information
