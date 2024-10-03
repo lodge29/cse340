@@ -15,7 +15,6 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 
 
-
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -34,6 +33,10 @@ app.get("/", function(req, res){
   res.render("index", {title: "Home"})
 })
 */
+
+// week 3
+// Inventory routes
+app.use("/inv", inventoryRoute)
 
 // week 3
 app.get("/", baseController.buildHome)
