@@ -14,6 +14,7 @@ const static = require("./routes/static")
 // week 3
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
+const utilities = require("./utilities/index")
 
 
 /* ***********************
@@ -36,11 +37,50 @@ app.get("/", function(req, res){
 */
 
 // week 3
-app.get("/", baseController.buildHome)
 
-// week 3
-// Inventory routes
+// error handling added
+app.get("/", utilities.handleErrors(baseController.buildHome))
+
+// Inventory routes added
 app.use("/inv", inventoryRoute)
+
+/* **********************
+* File Not Found Route - must be last route in list
+* Place after all routes
+* Unit 3, Basic Error Handling Activity
+************************/
+app.use(async (req, res, next) => {
+  next({ status: 404, message: "Sorry, we appear to have lost that page."});
+});
+
+/* **********************
+*** Exoress Error handler ***
+* Place after all other middleware
+* Unit 3, basic Error Handling Activity
+************************/
+
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    nav
+  })
+});
+
+/* *** older replaced by above; comparison only ***
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message: err.message,
+    nav
+  })
+})
+  */
 
 /* ***********************
  * Local Server Information
