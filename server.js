@@ -28,19 +28,16 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(static)
-
-// Index route
-/*
+ 
+/*Index route
 app.get("/", function(req, res){
   res.render("index", {title: "Home"})
 })
 */
 
 // week 3
-
 // error handling added
 app.get("/", utilities.handleErrors(baseController.buildHome))
-
 // Inventory routes added
 app.use("/inv", inventoryRoute)
 

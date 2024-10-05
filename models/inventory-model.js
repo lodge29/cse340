@@ -7,6 +7,7 @@ async function getClassifications(){
   return await pool.query("SELECT * FROM public.classification ORDER BY classification_name")
 }
 
+
 /* ***************************
  *  Get all inventory items and classification_name by classification_id
  * ************************** */
@@ -25,5 +26,20 @@ async function getInventoryByClassificationId(classification_id) {
   }
 }
 
+/* ***************************
+ *  Get single classification data ???
+ * ************************** */
+async function getClassificationById(classification_id) {
+  const data = await pool.query(
+    'SELECT * FROM public.classification WHERE classification_id = $1 ORDER BY classification_name',
+     [classification_id]
+  )
+  return data.rows[0]
+}
 
-module.exports = {getClassifications, getInventoryByClassificationId};
+
+module.exports = {
+  getClassifications, 
+  getInventoryByClassificationId,
+  getClassificationById
+};
