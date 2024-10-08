@@ -62,25 +62,26 @@ Util.buildClassificationGrid = async function(data){
 
 
 /* **************************************
-* Build the inventory view HTML ???
+* Build the single inventory vehicle - DETAIL VIEW
 * ************************************ */
 // Build the spefic vehicle information view HTML
 Util.buildSingleVehicle = async function(data){
   let html 
   if (data) {
-  html = '<div id="inv-display">'
+  html = '<div id="inv-details-display">'
   const vehicle = data
-  html += '<h1>' + vehicle.inv_year + ' ' + vehicle.inv_make + ' ' + vehicle.inv_model + '</h1>'
-  html += '<img src="' + vehicle.inv_image +'" />'
-   html += '<img src="' + vehicle.inv_thumbnail +'" />'
-  html += '<h2>Details</h2>'
-  html += '<ul>'
-  html += '<li><strong>Price:</strong> $' + vehicle.inv_price + '</li>'
-  html += '<li><strong>Year:</strong> ' + vehicle.inv_year + '</li>'
-  html += '<li><strong>Color:</strong> ' + vehicle.inv_color + '</li>'
-  html += '<li><strong>Description:</strong> ' + vehicle.inv_description + '</li>'
-  html += '<li><strong>Miles:</strong> ' + vehicle.inv_miles + '</li>'
-  html += '</ul>'
+  let vehicleMiles = vehicle.inv_miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  html += '<div class="inv-details-img">'
+  html += '<img src="' + vehicle.inv_image +'" alt="' + vehicle.inv_make + ' ' + vehicle.inv_model + '" image/>'
+  html += '</div>'
+  html += '<div class="inv-details">'
+  html += '<h1>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</h1>'
+  html += '<p><strong>Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</strong></p>'
+  html += '<p><strong>Description: </strong>' + vehicle.inv_description + '</p>'
+  html += '<p><strong>Color: </strong>' + vehicle.inv_color + '</p>'
+
+  html += '<p><strong>Miles: </strong>' + vehicleMiles + '</p>'
+  html += '</div>'
   html += '</div>'
 }
   return html

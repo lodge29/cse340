@@ -214,6 +214,80 @@ footer {
 }
 
 /*
+* inventory classification view
+*/
+
+#inv-display  {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  columns: 3;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding-inline-start: 0;
+}
+
+#inv-display > li > a > img {
+  border-radius: 15px;
+  max-width: 100%;
+}
+
+#inv-display hr {
+  height: 5px;
+  background-color: black;
+  border: none;
+}
+
+.namePrice {
+  font-size: 1em;
+}
+
+.namePrice > span {
+  font-size: 1.3em;
+}
+
+#inv-display a, #inv-display a:link, #inv-display a:visited, #inv-display a:active {
+  text-decoration: none;
+}
+
+#inv-display > li {
+  list-style-type: none;
+  border: 1px solid lightgrey;
+  margin: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  max-width: 200vw;
+  height: 250px;
+}
+
+
+/*
+* DETAILS VIEW /inv/detail/#
+*/
+
+#inv-details-display {
+  padding: 10px;
+  margin: 20px;
+}
+
+.inv-details-img {
+  display: flex;
+  justify-content: center;
+}
+
+.inv-details-img > img {
+  max-width: 70vw;
+}
+
+.inv-details > * {
+  font-size: 4vw;
+}
+
+
+
+/*
 * larger screens
 */
 
@@ -252,7 +326,7 @@ footer {
   }
 
   nav {
-    font-size: 1em;
+    font-size: 1.5em;
   }
   
   .us_box {
@@ -283,4 +357,39 @@ footer {
   left: 0;
   bottom: 0;
  }
+
+ #inv-display  {
+  
+  grid-template-columns: repeat(3, 1fr);
+}
+
+}
+
+@media screen and (min-width: 950px) {
+
+
+  #inv-details-display {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .inv-details-img > img{
+    max-width: 40vw;
+    
+  }
+
+  .inv-details-img {
+    max-width: 50vw;
+    margin: 15px;
+    
+  }
+  
+  .inv-details {
+    max-width: 50vw;
+  }
+  
+  .inv-details > * {
+    font-size: 1.3vw;
+  }
+
 }
