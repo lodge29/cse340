@@ -72,7 +72,7 @@ Util.buildSingleVehicle = async function(data){
   const vehicle = data
   let vehicleMiles = vehicle.inv_miles.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   html += '<div class="inv-details-img">'
-  html += '<img src="' + vehicle.inv_image +'" alt="' + vehicle.inv_make + ' ' + vehicle.inv_model + '" image/>'
+  html += '<img src="' + vehicle.inv_image +'" alt="' + vehicle.inv_make + ' ' + vehicle.inv_model + '" image>'
   html += '</div>'
   html += '<div class="inv-details">'
   html += '<h1>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details</h1>'
