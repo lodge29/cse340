@@ -1,7 +1,7 @@
 // week 3
 const invModel = require("../models/inventory-model")
 const Util = {}
-const url = require('url');
+
 
 
 /* ************************
@@ -79,7 +79,6 @@ Util.buildSingleVehicle = async function(data){
   html += '<p><strong>Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</strong></p>'
   html += '<p><strong>Description: </strong>' + vehicle.inv_description + '</p>'
   html += '<p><strong>Color: </strong>' + vehicle.inv_color + '</p>'
-
   html += '<p><strong>Miles: </strong>' + vehicleMiles + '</p>'
   html += '</div>'
   html += '</div>'

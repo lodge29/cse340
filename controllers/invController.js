@@ -23,12 +23,12 @@ invCont.buildByClassificationId = async function (req, res, next) {
  *  Build inventory by single inv_id
  * ************************** */
 invCont.buildSingleVehicle = async function (req, res, next) {
-  const inv_id = req.params.invId
+  const inv_id = req.params.invId // gets URL param #
   const data = await invModel.getClassificationById(inv_id)
   const html = await utilities.buildSingleVehicle(data)
   let nav = await utilities.getNav()
-  const vehicle = data.inv_year + ' ' + data.inv_make + ' ' + data.inv_model
-  res.render("./inventory/singleclassification", {
+  const vehicle = data.inv_year + ' ' + data.inv_make + ' ' + data.inv_model 
+  res.render("./inventory/singleclassification", { // sends to ejs file for output
     title: vehicle,
     nav,
     html,
