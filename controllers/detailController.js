@@ -1,5 +1,5 @@
 // Not using!
-
+/*
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities")
 
@@ -8,7 +8,7 @@ const invCont = {}
 
 /* ***************************
  *  Build inventory by inventory view
- * ************************** */
+ * ************************** 
 invCont.buildSingleVehicle = async function (req, res, next) {
     const inv_id = req.params.invId
     const data = await invModel.getClassificationById(inv_id)
@@ -24,3 +24,4 @@ invCont.buildSingleVehicle = async function (req, res, next) {
   }
 
 module.exports = invCont
+*/

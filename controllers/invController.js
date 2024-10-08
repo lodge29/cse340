@@ -28,7 +28,7 @@ invCont.buildSingleVehicle = async function (req, res, next) {
   const html = await utilities.buildSingleVehicle(data)
   let nav = await utilities.getNav()
   const vehicle = data.inv_year + ' ' + data.inv_make + ' ' + data.inv_model 
-  res.render("./inventory/singleclassification", { // sends to ejs file for output
+  res.render("./inventory/singleClassification", { // sends to ejs file for output
     title: vehicle,
     nav,
     html,
