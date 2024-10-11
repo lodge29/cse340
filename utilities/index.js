@@ -85,6 +85,13 @@ Util.buildSingleVehicle = async function(data){
 }
   return html
 }
+
+Util.bLogin = async function(req, res, next) {
+  let login = '<div id="login-container">'
+  login += '<p>This is a test</p>'
+  login += '</div>'
+  return login
+}
   
 
 /* ****************************************

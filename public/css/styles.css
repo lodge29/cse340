@@ -286,6 +286,49 @@ footer {
 }
 
 
+/*
+* LOGIN and REGISTER FORMS
+*/
+
+.form-container-login, .form-container-register {
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  font-size: 1.2em;
+  max-width: 300px;
+  padding: 20px;
+  margin: auto;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+}
+
+.login-div > input, .register-div > input {
+  font-size: 1em;
+  width: 100%;
+  height: 25px;
+  border-radius: 7px;
+}
+
+.login-button, .register-button {
+  text-align: center;
+}
+.login-button > input, .register-button > input {
+  font-size: .8em;
+  width: 100px;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.login-button > a:link, a:visited, a:active {
+  color: white;
+}
+
+
+
+
 
 /*
 * larger screens
