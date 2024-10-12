@@ -1,5 +1,6 @@
-const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const invModel = require("../models/inventory-model")
+
 
 const invCont = {}
 
@@ -32,6 +33,59 @@ invCont.buildSingleVehicle = async function (req, res, next) {
     title: vehicle,
     nav,
     html,
+  })
+}
+
+invCont.renderManagementView = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("inventory/management", {
+    title: "Management",
+    nav,
+    errors: null,
+  })
+}
+
+// render add-classification view
+invCont.renderClassificationView = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("inventory/add-classification", {
+    title: "Add Classification",
+    nav,
+    errors: null,
+  })
+}
+
+/* ***************************
+ *  Add classification to list
+ * ************************** */
+invCont.addClassification = async function (req, res, next) {
+  const { classification_name } = req.body
+  const unit = await invModel.addClassificationModel(classification_name)
+  let nav = await utilities.getNav()
+  if (unit){
+    req.flash(
+      "notice", 'Congratulations, you did it!.')
+    res.status(201).render("inventory/management", {
+      title: "Management",
+      nav,
+  
+    })
+  } else {
+    req.flash("notice", "Sorry, adding classification failed!")
+    res.status(500).render("inventory/add-classification", {
+      title: "Add Classification",
+      nav,
+    })
+  }
+}
+
+
+// display add-inventory view
+invCont.renderInventoryView = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("inventory/add-inventory", {
+    title: "Add inventory",
+    nav,
   })
 }
 

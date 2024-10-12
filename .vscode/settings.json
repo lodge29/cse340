@@ -1,3 +1,14 @@
 {
-    "sqltools.connections": []
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "postgresql://cse_db5_user:Kddzohpwpls8xmPi6uqF4AkCsmtrs1vk@dpg-crrn60ggph6c738iopu0-a/cse_db5",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "pgAdmin",
+            "database": "cse_db5",
+            "username": "cse_db5_user",
+            "password": "Kddzohpwpls8xmPi6uqF4AkCsmtrs1vk"
+        }
+    ]
 }

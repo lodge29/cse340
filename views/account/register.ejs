@@ -1,27 +1,37 @@
-<% if (title) { %>
+<div class="register-title"><% if (title) { %>
     <h1><%= title %></h1>
-    
     <% } else {
         res.redirect('/')
     } %>
 
+<%- messages() %>
+
+<% if (errors) { %>
+    <ul class="register-notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul><br>
+  <% } %>
+  
+</div>
 
 <div class="form-container-register">
     <form class="form-register" action="/account/register" method="post">
         <div class="register-div">
         <label for="account_firstname">First name:</label><br>
-        <input type="firstname" id="firstname" name="account_firstname"><br><br>
+        <input type="text" id="firstname" name="account_firstname" required><br><br>
         <label for="account_lastname">Last name:</label><br>
-        <input type="lastname" id="lastname" name="account_lastname"><br><br>
+        <input type="text" id="lastname" name="account_lastname" required><br><br>
         <label for="account_email">Login:</label><br>
-        <input type="email" id="fname" name="account_email"><br><br>
+        <input type="email" id="fname" name="account_email" required><br><br>
         <label for="account_password">Password:</label><br>
-        <input type="password" id="password" name="account_password"><br><br>
+        <p>At least 12 characters, 1 number, 1 capital letter and 1 special character</p>
+        <input type="password" id="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required><br><br>
         </div>
-
         <div class="register-button">
         <input type="submit" value="Register">
-        <label for"return-login"><a href="./login" >Back to login</a></label>
+        <label for"return-login"><a href="./login" id="login-register">Back to login</a></label>
         </div>
       </form>
     </div>

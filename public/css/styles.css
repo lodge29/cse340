@@ -290,6 +290,21 @@ footer {
 * LOGIN and REGISTER FORMS
 */
 
+.login-title, .register-title {
+  text-align: center;
+}
+
+.register-notice {
+  max-width: 300px;
+  margin: auto;
+  color: red;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: left;
+  padding-inline-start: 0;
+  
+}
+
 .form-container-login, .form-container-register {
   color: white;
   background-color: black;
@@ -313,6 +328,9 @@ footer {
 .login-button, .register-button {
   text-align: center;
 }
+
+
+
 .login-button > input, .register-button > input {
   font-size: .8em;
   width: 100px;
@@ -322,7 +340,11 @@ footer {
   background-color: white;
 }
 
-.login-button > a:link, a:visited, a:active {
+.login-button > a:link, .login-button > a:visited, .login-button > a:active {
+  color: white;
+}
+
+#login-register {
   color: white;
 }
 
