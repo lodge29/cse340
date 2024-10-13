@@ -1,13 +1,45 @@
 <% if (title) { %>
-    <h1><%= title %></h1>
-    
-    <% } else {
-      res.redirect('/')
-    } %>
+  <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
 
+<div class="add-inventory-notice">
+<%- messages() %>
+</div>
 
-<%# messages() %>
 
 <div class="add-inventory-container">
-    <p>Add inventory here!!</p>
+  <p>ALL FIELDS REQUIRED</p>
+  <form class="add-inventory-form" action="./inv/add-inventory" method="post">
+    <label for="classificationList">Classification:</label><br>
+    <%- classificationList %><br><br>
+
+    <label for="inv_make">Make:</label><br>
+    <input type="text" id="inv_make" name="inv_make" required><br><br>
+
+    <label for="inv_model">Model:</label><br>
+    <input type="text" id="inv_model" name="inv_model" required><br><br>
+
+    <label for="inv_description">Description:</label><br>
+    <input type="text" id="inv_description" name="inv_description" required><br><br>
+
+    <label for="inv_image">Image Path:</label><br>
+    <input type="text" id="inv_image" name="inv_image" value="/images/vehicles/no-image.png" required><br><br>
+
+    <label for="inv_thumbnail">Thumbnail Path:</label><br>
+    <input type="text" id="inv_thumbnail" name="inv_thumbnail" value="/images/vehicles/no-image.png" required><br><br>
+
+    <label for="inv_price">Price::</label><br>
+    <input type="number" id="inv_price" name="inv_price" required><br><br>
+
+    <label for="inv_year">Year:</label><br>
+    <input type="number" id="inv_year" name="inv_year" required><br><br>
+
+    <label for="inv_color">Color:</label><br>
+    <input type="text" id="inv_color" name="inv_color" required><br><br>
+
+
+  </form>
+
 </div>

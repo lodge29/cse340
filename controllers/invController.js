@@ -80,7 +80,8 @@ invCont.addClassification = async function (req, res, next) {
 }
 
 
-// display add-inventory view
+// display add-inventory view 
+/*
 invCont.renderInventoryView = async function (req, res, next) {
   let nav = await utilities.getNav()
   res.render("inventory/add-inventory", {
@@ -88,6 +89,18 @@ invCont.renderInventoryView = async function (req, res, next) {
     nav,
   })
 }
+  */
+
+invCont.renderAddInventoryView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  let classificationList = await utilities.buildClassificationList();
+  res.render("inventory/add-inventory", {
+    title: "Add Inventory",
+    nav,
+    classificationList
+  })
+}
+
 
 
 module.exports = invCont

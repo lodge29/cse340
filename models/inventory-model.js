@@ -54,9 +54,6 @@ async function addClassificationModel(classification_name) {
   }
 }
 
-
-
-
 module.exports = {
   getClassifications, 
   getInventoryByClassificationId,
