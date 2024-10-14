@@ -287,10 +287,10 @@ footer {
 
 
 /*
-* LOGIN and REGISTER FORMS
+* LOGIN, REGISTER, add-inventory, add-classification FORMS
 */
 
-.login-title, .register-title {
+.login-title, .register-title, .add-classification-title, .add-inventory-title {
   text-align: center;
 }
 
@@ -305,7 +305,7 @@ footer {
   
 }
 
-.form-container-login, .form-container-register {
+.form-container-login, .form-container-register, .add-classification-form-container, .add-inventory-form-container {
   color: white;
   background-color: black;
   border-radius: 10px;
@@ -318,20 +318,20 @@ footer {
   border-width: 2px;
 }
 
-.login-div > input, .register-div > input {
+.login-div > input, .register-div > input, .add-classification-div > input, .add-inventory-div > input, select {
   font-size: 1em;
   width: 100%;
   height: 25px;
   border-radius: 7px;
 }
 
-.login-button, .register-button {
+.login-button, .register-button, .add-classification-button, .add-inventory-button {
   text-align: center;
 }
 
 
 
-.login-button > input, .register-button > input {
+.login-button > input, .register-button > input, .add-classification-button > input, .add-inventory-button > input {
   font-size: .8em;
   width: 100px;
   border-radius: 20px;
@@ -344,9 +344,11 @@ footer {
   color: white;
 }
 
-#login-register {
+#login-register, #return_management {
   color: white;
 }
+
+
 
 
 

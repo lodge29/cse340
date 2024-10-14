@@ -1,8 +1,11 @@
+<div class="add-classification-title">
 <% if (title) { %>
     <h1><%= title %></h1>
     <% } else {
       res.redirect('/')
     } %>
+
+<%- messages() %>
 
 <div class="add-classification-error">
 <% if (errors && errors.length > 0) { %>
@@ -13,24 +16,22 @@
     </ul>
   <% } %>
 </div>
-
-<div class="add-classification-notice">
-<%- messages() %>
 </div>
 
-<div class="add-classification-container">
+
+<div class="add-classification-form-container">
     <p>FIELD IS REQUIRED</p>
     <p>NAME MUST BE ALPHABETIC CHARACTERS ONLY</p>
     <form class="add-classification-form" action="/inv/add-classification" method="post">
 
-        <div class="add-classification-div">
-            <label for="classification_name">Enter Classification:</label><br>
-            <input type="text" id="classification_name" name="classification_name" required><br><br>
-        </div>
-        <div class="add-classification-button">
-            <input type="submit" value="Add classification"><br><br>
-            
-        </div>
+      <div class="add-classification-div">
+        <label for="classification_name">Enter Classification:</label><br>
+        <input type="text" id="classification_name" name="classification_name" required><br><br>
+      </div>
+      <div class="add-classification-button">
+        <input type="submit" value="Add classification"><br><br>
+        <label for="return_management"><a href="/inv" id="return_management">Return to management </a> </label>
+      </div>
 
-        </form>
+    </form>
 </div>
