@@ -86,7 +86,8 @@ invCont.renderAddInventoryView = async function (req, res, next) {
   res.render("inventory/add-inventory", {
     title: "Add Inventory",
     nav,
-    classificationList
+    classificationList,
+    errors: null
   })
 }
 
@@ -106,19 +107,20 @@ invCont.addInventory = async function (req, res, next) {
     classification_id
   )
   let nav = await utilities.getNav()
+  let classificationList = await utilities.buildClassificationList();
   if (inv){
     req.flash(
       "notice", 'Congratulations, you did it!.')
     res.status(201).render("inventory/management", {
       title: "Management",
-      nav,
-  
+      nav
     })
   } else {
     req.flash("notice", "Sorry, adding inventory items failed!")
-    res.status(500).render("inventory/add-classification", {
-      title: "Add Classification",
+    res.status(500).render("inventory/add-inventory", {
+      title: "Add Inventory",
       nav,
+      classificationList
     })
   }
 }

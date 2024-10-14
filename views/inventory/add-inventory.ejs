@@ -5,26 +5,37 @@
     res.redirect('/')
   } %>
 
-
 <%- messages() %>
+
+<div class="add-inventory-error">
+<% if (errors && errors.length > 0) { %>
+    <ul class="add-classification-error-ul">
+      <% errors.forEach(function(error) { %>
+        <li><%= error.msg %></li>
+      <% }); %>
+    </ul>
+  <% } %>
 </div>
 
+</div>
 
 <div class="add-inventory-form-container">
   <p>ALL FIELDS REQUIRED</p>
   <form id="carform" class="add-inventory-form" action="/inv/add-inventory" method="post">
     <div class="add-inventory-div">
-      <label for="classification_id">Classification:</label><br>
+      <label>Classification:</label><br>
       <%- classificationList %><br><br>
 
       <label for="inv_make">Make:</label><br>
-      <input type="text" id="inv_make" name="inv_make" value="Dodge" required><br><br>
+      
+
+      <input type="text" id="inv_make" name="inv_make" required value="<%= typeof inv_make !== 'undefined' ? inv_make : '' %>"><br><br>
 
       <label for="inv_model">Model:</label><br>
-      <input type="text" id="inv_model" name="inv_model" value="Challnger" required><br><br>
+      <input type="text" id="inv_model" name="inv_model" required value="<%= typeof inv_model !== 'undefined' ? inv_model : '' %>"><br><br>
 
       <label for="inv_description">Description:</label><br>
-      <input type="text" id="inv_description" name="inv_description" required><br><br>
+      <input type="text" id="inv_description" name="inv_description" required value="<%= typeof inv_description !== 'undefined' ? inv_description : '' %>"><br><br>
 
       <label for="inv_image">Image Path:</label><br>
       <input type="text" id="inv_image" name="inv_image" value="/images/vehicles/no-image.png" required><br><br>
@@ -33,21 +44,21 @@
       <input type="text" id="inv_thumbnail" name="inv_thumbnail" value="/images/vehicles/no-image-tn.png" required><br><br>
 
       <label for="inv_price">Price:</label><br>
-      <input type="number" id="inv_price" name="inv_price" value="32000" required><br><br>
+      <input type="number" id="inv_price" name="inv_price" required value="<%= typeof inv_price !== 'undefined' ? inv_price : '' %>"><br><br>
 
       <label for="inv_year">Year:</label><br>
-      <input type="number" id="inv_year" name="inv_year" required><br><br>
+      <input type="number" id="inv_year" name="inv_year" required value="<%= typeof inv_year !== 'undefined' ? inv_year : '' %>"><br><br>
 
       <label for="inv_miles">Miles:</label><br>
-      <input type="number" id="inv_miles" name="inv_miles" value="500" required><br><br>
+      <input type="number" id="inv_miles" name="inv_miles" required value="<%= typeof inv_miles !== 'undefined' ? inv_miles : '' %>"><br><br>
 
       <label for="inv_color">Color:</label><br>
-      <input type="text" id="inv_color" name="inv_color" value="black" required><br><br>
+      <input type="text" id="inv_color" name="inv_color" required value="<%= typeof inv_color !== 'undefined' ? inv_color : '' %>"><br><br>
     </div>
 
     <div class="add-inventory-button">
       <input type="submit" value="Add Inventory"><br><br>
-      <label for="return_management"><a href="/inv" id="return_management">Return to management </a> </label>
+      <label><a href="/inv" id="return_management">Return to management </a> </label>
     </div>
 
   </form>

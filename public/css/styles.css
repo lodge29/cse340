@@ -294,7 +294,7 @@ footer {
   text-align: center;
 }
 
-.register-notice {
+.register-notice, .add-classification-error-ul {
   max-width: 300px;
   margin: auto;
   color: red;
@@ -328,8 +328,6 @@ footer {
 .login-button, .register-button, .add-classification-button, .add-inventory-button {
   text-align: center;
 }
-
-
 
 .login-button > input, .register-button > input, .add-classification-button > input, .add-inventory-button > input {
   font-size: .8em;

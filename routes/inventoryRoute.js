@@ -19,6 +19,6 @@ router.get("/add-inventory", invController.renderAddInventoryView);
 router.post("/add-classification", invValidate.inventoryRules(), invValidate.checkInvData, invController.addClassification);
 
 // add inventory items to classification
-router.post('/add-inventory', invController.addInventory)
+router.post('/add-inventory', invValidate.addInventoryRules(), invValidate.checkAddInvData, invController.addInventory)
 
 module.exports = router;

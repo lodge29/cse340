@@ -1,9 +1,9 @@
 <div class="add-classification-title">
 <% if (title) { %>
-    <h1><%= title %></h1>
-    <% } else {
-      res.redirect('/')
-    } %>
+  <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
 
 <%- messages() %>
 
@@ -16,6 +16,7 @@
     </ul>
   <% } %>
 </div>
+
 </div>
 
 
@@ -30,7 +31,7 @@
       </div>
       <div class="add-classification-button">
         <input type="submit" value="Add classification"><br><br>
-        <label for="return_management"><a href="/inv" id="return_management">Return to management </a> </label>
+        <label><a href="/inv" id="return_management">Return to management </a> </label>
       </div>
 
     </form>
