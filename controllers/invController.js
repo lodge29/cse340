@@ -36,6 +36,7 @@ invCont.buildSingleVehicle = async function (req, res, next) {
   })
 }
 
+// render management view
 invCont.renderManagementView = async function (req, res, next) {
   let nav = await utilities.getNav()
   res.render("inventory/management", {
@@ -79,18 +80,6 @@ invCont.addClassification = async function (req, res, next) {
   }
 }
 
-
-// display add-inventory view 
-/*
-invCont.renderInventoryView = async function (req, res, next) {
-  let nav = await utilities.getNav()
-  res.render("inventory/add-inventory", {
-    title: "Add inventory",
-    nav,
-  })
-}
-  */
-
 invCont.renderAddInventoryView = async function (req, res, next) {
   let nav = await utilities.getNav();
   let classificationList = await utilities.buildClassificationList();
@@ -101,6 +90,38 @@ invCont.renderAddInventoryView = async function (req, res, next) {
   })
 }
 
+
+invCont.addInventory = async function (req, res, next) {
+  const { classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color } = req.body
+  const inv = await invModel.addInventoryModel( 
+    inv_make, 
+    inv_model, 
+    inv_description, 
+    inv_image, 
+    inv_thumbnail, 
+    inv_price, 
+    inv_year,
+    inv_miles, 
+    inv_color,
+    classification_id
+  )
+  let nav = await utilities.getNav()
+  if (inv){
+    req.flash(
+      "notice", 'Congratulations, you did it!.')
+    res.status(201).render("inventory/management", {
+      title: "Management",
+      nav,
+  
+    })
+  } else {
+    req.flash("notice", "Sorry, adding inventory items failed!")
+    res.status(500).render("inventory/add-classification", {
+      title: "Add Classification",
+      nav,
+    })
+  }
+}
 
 
 module.exports = invCont
