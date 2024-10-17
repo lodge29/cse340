@@ -9,24 +9,6 @@ async function getClassifications(){
 
 /* ***************************
  *  Get single classification
- * ************************** 
- * 
- * removed due to being limited to CLEAN DATA only.
- * 
-async function getClassificationById(inv_id) {
-  try {
-    const data = await pool.query(
-      'SELECT * FROM public.inventory ORDER BY inv_id ASC',
-  )
-    return data.rows[inv_id-1]
-  
-  } catch (error) {
-    console.error("getclassificationsbyid error " + error)
-  }
-}*/
-
-/* ***************************
- *  Get single classification
  * ************************** */
 async function getClassificationById(inv_id) {
   try {

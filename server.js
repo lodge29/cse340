@@ -22,9 +22,15 @@ const pool = require('./database/')
 const accountRoute = require('./routes/accountRoute')
 const bodyParser = require("body-parser")
 
+// week 5
+const cookieParser = require("cookie-parser")
+
+
 /* ***********************
  * Middleware
  * ************************/
+
+
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -45,6 +51,9 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
+
 
 /* ***********************
  * View Engine and Templates
@@ -93,18 +102,6 @@ app.use(async (err, req, res, next) => {
     nav
   })
 });
-
-/* *** older replaced by above; comparison only ***
-app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav()
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  res.render("errors/error", {
-    title: err.status || 'Server Error',
-    message: err.message,
-    nav
-  })
-})
-  */
 
 /* ***********************
  * Local Server Information

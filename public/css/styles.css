@@ -294,15 +294,13 @@ footer {
   text-align: center;
 }
 
-.register-notice, .add-classification-error-ul {
+.register-error, .register-message, .login-error, .login-message, .add-classification-error-ul {
   max-width: 300px;
   margin: auto;
   color: red;
   text-decoration: none;
-  list-style-type: none;
   text-align: left;
   padding-inline-start: 0;
-  
 }
 
 .form-container-login, .form-container-register, .add-classification-form-container, .add-inventory-form-container {

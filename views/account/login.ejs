@@ -2,15 +2,25 @@
 <div class="login-title">
 <% if (title) { %>
     <h1><%= title %></h1>
-    <%- messages() %>
     <% } else {
         res.redirect('/')
     } %>
+
+    <div class="login-message">
+        <%- messages() %>
     </div>
-    
-    <%# message %>
+
+    <% if (errors) { %>
+        <ul class="login-error">
+       <% errors.array().forEach(error => { %>
+         <li><%= error.msg %></li>
+      <%  }) %>
+       </ul><br>
+      <% } %>
+</div>
+
     <div class="form-container-login">
-        <form class="form-login">
+        <form class="form-login" action="/account/login" method="post">
             <div class="login-div">
                 <label for="account_email">Login:</label><br>
                 <input type="email" id="account_email" name="account_email" required><br><br>
@@ -20,7 +30,7 @@
             </div>
             <div class="login-button">
                 <input type="submit" value="LOGIN"><br><br>
-                <label for="no_account">No account? <a href="./register" id="login-register">Sign Up </a> </label>
+                <label>No account? <a href="./register" id="login-register">Sign Up </a> </label>
             </div>
-          </form>
-        </div>
+        </form>
+    </div>
