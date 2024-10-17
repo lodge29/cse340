@@ -2,7 +2,7 @@ const utilities = require("../utilities/")
 const accountModel = require("../models/account-model")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
-
+const bcrypt = require("bcryptjs")
 
 
 async function buildLogin(req, res, next) {
@@ -34,11 +34,24 @@ async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
 
+  // Hash the password
+  let hashedPassword
+  try {
+    hashedPassword = await bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+    req.flash("notice", 'Sorry, there was an error processing the registration.')
+    res.status(500).render("account/register", {
+      title: "Registration",
+      nav,
+      errors: null,
+    })
+  }
+
   const regResult = await accountModel.registerAccount(
     account_firstname,
     account_lastname,
     account_email,
-    account_password
+    hashedPassword
   )
 
   if (regResult) {
@@ -78,7 +91,7 @@ async function accountLogin(req, res) {
   return
   }
   try {
-   if (account_password === accountData.account_password) {
+   if ( await bcrypt.compare(account_password, accountData.account_password) ) {
    delete accountData.account_password
    const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 })
    if (process.env.NODE_ENV === 'development') {
