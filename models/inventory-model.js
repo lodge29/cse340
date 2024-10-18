@@ -54,6 +54,9 @@ async function addClassificationModel(classification_name) {
   }
 }
 
+/* ***************************
+ *  Add a single inventory item to list
+ * ************************** */
 async function addInventoryModel(
   inv_make, 
   inv_model, 

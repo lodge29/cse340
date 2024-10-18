@@ -15,6 +15,12 @@ router.get("/", invController.renderManagementView);
 router.get("/add-classification", invController.renderClassificationView);
 router.get("/add-inventory", invController.renderAddInventoryView);
 
+// display list of classifications in JSON to be edited
+router.get('/getInventory/:classification_id', invController.getInventoryJSON);
+
+// 
+router.get("/edit/:invId", invController.editInventoryView);
+
 // add classification
 router.post("/add-classification", invValidate.inventoryRules(), invValidate.checkInvData, invController.addClassification);
 
