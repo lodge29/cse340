@@ -86,12 +86,24 @@ app.use(async (req, res, next) => {
   next({ status: 404, message: "Sorry, we appear to have lost that page."});
 });
 
+// errorLink for testing to be used only with /inv/error
+app.use('/inv/error', async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  //console.error(err.stack);
+  res.status(err.status || 500);
+  res.render('errors/errorLink', {
+    title: 'Server Error',
+    nav,
+    message: err.message,
+    status: err.status || 500,
+  });
+});
+
 /* **********************
 *** Exoress Error handler ***
 * Place after all other middleware
 * Unit 3, basic Error Handling Activity
 ************************/
-
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
@@ -102,6 +114,7 @@ app.use(async (err, req, res, next) => {
     nav
   })
 });
+
 
 /* ***********************
  * Local Server Information

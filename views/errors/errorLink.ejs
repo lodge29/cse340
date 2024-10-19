@@ -1,0 +1,11 @@
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+    
+<h2><%- message %></h2>
+
+
+<h2>Status = <%= status %></h2>
