@@ -1,1 +1,1 @@
-SELECT * FROM inventory WHERE inv_id = 10
+SELECT * FROM inventory WHERE inv_id = 17

@@ -1,3 +1,5 @@
+
+
 <div class="edit-inventory-title">
     <% if (title) { %>
       <h1><%= title %></h1>
@@ -21,7 +23,7 @@
     
     <div class="edit-inventory-form-container">
       <p>ALL FIELDS REQUIRED</p>
-      <form id="carform" class="edit-inventory-form" action="/inv/update" method="post">
+      <form id="updateForm" id="carForm" class="edit-inventory-form" action="/inv/update" method="post">
         <div class="edit-inventory-div">
           <label>Classification:</label><br>
           <%- classificationList %><br><br>
@@ -55,9 +57,13 @@
         </div>
     
         <div class="edit-inventory-button">
-          <input type="submit" name="submit" value="Update Inventory"><br><br>
+          <input type="submit" name="submit" value="Update Inventory" disabled><br><br>
         </div>
-    
+        <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
       </form>
-    
+      
     </div>
+
+    <script src="/js/inv-update.js"></script>

@@ -21,10 +21,14 @@ router.get('/getInventory/:classification_id', invController.getInventoryJSON);
 // 
 router.get("/edit/:invId", invController.editInventoryView);
 
+router.post("/update", invController.updateInventory)
+
 // add classification
 router.post("/add-classification", invValidate.inventoryRules(), invValidate.checkInvData, invController.addClassification);
 
 // add inventory items to classification
 router.post('/add-inventory', invValidate.addInventoryRules(), invValidate.checkAddInvData, invController.addInventory)
+
+
 
 module.exports = router;
