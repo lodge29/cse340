@@ -90,13 +90,6 @@ Util.buildSingleVehicle = async function(data){
   return html
 }
 
-Util.bLogin = async function(req, res, next) {
-  let login = '<div id="login-container">'
-  login += '<p>This is a test</p>'
-  login += '</div>'
-  return login
-}
-
 
 // classification list for add-inventory ejs
 Util.buildClassificationList = async function (classification_id = null) {
@@ -116,13 +109,32 @@ Util.buildClassificationList = async function (classification_id = null) {
 }
 
 /* ****************************************
+* middleware to clear jwt cookie on /logout
+**************************************** */
+Util.checkJWTTokenGlobally = (req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(req.cookies.jwt, process.env.ACCESS_TOKEN_SECRET, (err, accountData) => {
+      if (err) {
+        res.clearCookie("jwt");
+        res.locals.loggedin = false;
+        return next();
+      }
+      res.locals.accountData = accountData;
+      res.locals.loggedin = true;
+      next();
+    });
+  } else {
+    res.locals.loggedin = false;
+    next();
+  }
+};
+
+/* ****************************************
 * Middleware to check token validity
 **************************************** */
 Util.checkJWTToken = (req, res, next) => {
   if (req.cookies.jwt) {
-   jwt.verify(
-    req.cookies.jwt,
-    process.env.ACCESS_TOKEN_SECRET,
+   jwt.verify(req.cookies.jwt, process.env.ACCESS_TOKEN_SECRET,
     function (err, accountData) {
      if (err) {
       req.flash("Please log in")
@@ -137,6 +149,35 @@ Util.checkJWTToken = (req, res, next) => {
    next()
   }
  }
+
+ /* ****************************************
+* Middleware to check token validity
+**************************************** */
+Util.checkAccountTypeJWT = (req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(req.cookies.jwt, process.env.ACCESS_TOKEN_SECRET, (err, accountData) => {
+      if (err) {
+        req.flash("notice", "Please log in");
+        res.clearCookie("jwt");
+        return res.redirect("/account/login");
+      }
+      if (accountData.account_type === 'employee' || accountData.account_type === 'admin') {
+        res.locals.accountData = accountData;
+        res.locals.loggedin = true;
+        next();
+      } else {
+        req.flash("notice", "Access denied. Admin or Employee account required.");
+        res.clearCookie("jwt");
+        return res.redirect("/account/login");
+      }
+    });
+  } else {
+    req.flash("notice", "Please log in");
+    return res.redirect("/account/login");
+  }
+};
+
+
   
  /* ****************************************
  *  Check Login

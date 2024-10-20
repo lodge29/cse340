@@ -24,6 +24,7 @@ const bodyParser = require("body-parser")
 
 // week 5
 const cookieParser = require("cookie-parser")
+//const jwt = require('jsonwebtoken');
 
 
 /* ***********************
@@ -42,6 +43,8 @@ app.use(session({
   name: 'sessionId',
 }))
 
+
+
 // Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
@@ -49,10 +52,13 @@ app.use(function(req, res, next){
   next()
 })
 
+
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
-app.use(utilities.checkJWTToken)
+app.use(utilities.checkJWTTokenGlobally)
+
 
 
 /* ***********************

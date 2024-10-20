@@ -19,36 +19,44 @@ router.get("/detail/:invId",
 
 // management access route
 router.get("/", 
+    utilities.checkAccountTypeJWT,
     utilities.handleErrors(invController.renderManagementView));
 
 // view add-classification 
-router.get("/add-classification", 
+router.get("/add-classification",
+    utilities.checkAccountTypeJWT,
     utilities.handleErrors(invController.renderClassificationView));
 
 // view add-inventory 
 router.get("/add-inventory", 
+    utilities.checkAccountTypeJWT,
     utilities.handleErrors(invController.renderAddInventoryView));
 
 // display list of classifications in JSON to be edited
 router.get('/getInventory/:classification_id', 
+    utilities.checkAccountTypeJWT,
     utilities.handleErrors(invController.getInventoryJSON));
 
 // view edit-inventory 
 router.get("/edit/:invId", 
+    utilities.checkAccountTypeJWT,
     utilities.handleErrors(invController.editInventoryView));
 
 // UPDATE single vehicle details through edit-inventory view
 router.post("/update", 
+    utilities.checkAccountTypeJWT,
     utilities.handleErrors(invController.updateInventory));
 
 // add classification to list
 router.post("/add-classification", 
+    utilities.checkAccountTypeJWT,
     invValidate.inventoryRules(), 
     invValidate.checkInvData, 
     utilities.handleErrors(invController.addClassification));
 
 // add single vehicle details to classification
 router.post('/add-inventory', 
+    utilities.checkAccountTypeJWT,
     invValidate.addInventoryRules(), 
     invValidate.checkAddInvData, 
     utilities.handleErrors(invController.addInventory))

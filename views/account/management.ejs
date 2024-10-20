@@ -4,3 +4,15 @@
         res.redirect('/')
     } %>
 
+    <%- messages() %>
+
+    <h2> Welcome <%= locals.accountData.account_firstname %></h2>
+    <p><a href="/account/update/<%= locals.accountData.account_id %>">Update Account Information</a></p><br>
+
+<% if (locals.loggedin && 
+    (accountData.account_type == 'employee' || accountData.account_type == 'admin')) { %>
+    <div>
+        <h3>Inventory Management</h3>
+        <p><a href="/inv/">Inventory Management</a></p><br>
+    </div>
+<% }  %>
