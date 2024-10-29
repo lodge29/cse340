@@ -1,0 +1,26 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    
+    <% } else {
+      res.redirect('/')
+    } %>
+
+    <div class="compare-vehicles-form-container">
+      <p>ALL FIELDS REQUIRED</p>
+      <form id="carform" class="compare-vehicles-form" action="/inv/compareVehiclesDetails/" method="post">
+  
+
+        <select name="inv_id1" id="inventoryList1" required>
+          <%- inventoryList1 %>
+        </select><br><br>
+      
+  
+        <select name="inv_id2" id="inventoryList2" required>
+          <%- inventoryList2 %>
+        </select><br><br>
+
+        <div class="compare-vehicles-button">
+          <input type="submit" value="Compare Vehicles"><br><br>
+        </div>
+      </form>
+    </div>

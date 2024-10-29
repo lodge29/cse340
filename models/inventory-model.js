@@ -125,11 +125,19 @@ async function updateInventory(
   }
 }
 
+/* ***************************
+ *  WEEK 6 assignment: Get all inventory items
+ * ************************** */
+async function getAllInventoryItems(){
+  return await pool.query("SELECT * FROM public.inventory ORDER BY inv_make")
+}
+
 module.exports = {
   getClassifications, 
   getInventoryByClassificationId,
   getClassificationById,
   addClassificationModel,
   addInventoryModel,
-  updateInventory
+  updateInventory,
+  getAllInventoryItems
 };

@@ -1,6 +1,6 @@
 const utilities = require(".")
-  const { body, validationResult } = require("express-validator")
-  const validate = {}
+const { body, validationResult } = require("express-validator")
+const validate = {}
 
 
   /*  **********************************
@@ -13,6 +13,7 @@ const utilities = require(".")
         .trim()
         .escape()
         .notEmpty()
+
         .isString()
         .isLength({ min: 2 })
         .withMessage("Please provide a valid first name using only letters."), 

@@ -61,6 +61,8 @@ router.post('/add-inventory',
     invValidate.checkAddInvData, 
     utilities.handleErrors(invController.addInventory))
 
-
+// compare vehicle page routes
+router.get('/compareVehiclesList', invController.buildCompareVehiclesView)
+router.post('/compareVehiclesDetails', invController.compareVehiclesDetails)
 
 module.exports = router;

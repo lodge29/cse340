@@ -1,7 +1,5 @@
 const utilities = require("../utilities/")
 const invModel = require("../models/inventory-model")
-
-
 const invCont = {}
 
 /* ***************************
@@ -229,6 +227,46 @@ invCont.updateInventory = async function (req, res, next) {
     inv_color
     })
   }
+}
+
+/* ***************************
+ *  WEEK 6 - compare vehicles view
+ * ************************** */
+invCont.buildCompareVehiclesView = async function (req, res, next) {
+  const inventoryList1 = await utilities.buildInventoryList()
+  console.log("compare view 1= " + inventoryList1.inventoryList)
+  console.log("compare view 2= " + inventoryList1.valuesArray)
+  let nav = await utilities.getNav()
+  const compareVehiclesTitle = "Compare Vehicles"
+  res.render("./inventory/compare", {
+    title: compareVehiclesTitle,
+    nav,
+    inventoryList1: inventoryList1.inventoryList,
+    inventoryList2: inventoryList1.inventoryList
+  })
+}
+
+
+/* ***************************
+ *  WEEK 6 - compare vehicles side by side... somewhat
+ * ************************** */
+invCont.compareVehiclesDetails = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const { inv_id1, inv_id2 } = req.body
+  console.log("INV_ID 1: " + inv_id1)
+  console.log("INV_ID 2: " + inv_id2)
+  const vehicle1 = await invModel.getClassificationById(inv_id1)
+  const vehicle2 = await invModel.getClassificationById(inv_id2)
+  const vehicleDetails1 = await utilities.buildSingleVehicle(vehicle1)
+  const vehicleDetails2 = await utilities.buildSingleVehicle(vehicle2)
+  res.render("./inventory/compareVehicleDetails", {
+    title: "Compare Vehicles",
+    nav,
+    //inv_id1: inv_id1,
+    //inv_id2: inv_id2,
+    vehicle1: vehicleDetails1,
+    vehicle2: vehicleDetails2,
+  })
 }
 
 

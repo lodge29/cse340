@@ -15,6 +15,7 @@ Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
+  list += '<li><a href="/inv/compareVehiclesList" title="Compare Vehicles">Compare Vehicles</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
@@ -107,6 +108,28 @@ Util.buildClassificationList = async function (classification_id = null) {
   classificationList += "</select>"
   return classificationList
 }
+
+/* ***************************
+ *  WEEK 6 - get each vehicle for drop down list in ejs file
+ * ************************** */
+Util.buildInventoryList = async function (inv_id = null) {
+  let data = await invModel.getAllInventoryItems()
+  //let inventoryList =
+    //'<select name="inv_id" id="inventoryList" required>'
+    let inventoryList = "<option value=''>Choose a vehicle</option>"
+    let valuesArray = []
+  data.rows.forEach((row) => {
+    inventoryList += '<option value="' + row.inv_id + '"'
+    if ( inv_id != null && row.inv_id == inv_id ) { 
+      inventoryList += " selected " 
+    }
+    inventoryList += ">" + row.inv_make + ' ' + row.inv_model + "</option>"
+    valuesArray.push(row.inv_id);
+  })
+  //inventoryList += "</select>"
+  return { inventoryList, valuesArray }
+}
+
 
 /* ****************************************
 * middleware to clear jwt cookie on /logout

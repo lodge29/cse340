@@ -27,7 +27,8 @@ router.get('/management',
     utilities.handleErrors(accountController.buildManagement))
 
 // UPDATE view
-router.get('/update/:accountId', accountController.buildUpdate)
+router.get('/update/:accountId', 
+    utilities.handleErrors(accountController.buildUpdate))
 
 
 /* *****************
@@ -57,14 +58,14 @@ router.post('/login',
 * UPDATE account information
 ****************** */
 router.post('/update',
-    accountController.updateAccountInformation
+    utilities.handleErrors(accountController.updateAccountInformation)
 )
 
 /* *****************
 * UPDATE account password
 ****************** */
 router.post('/update-p',
-    accountController.updateAccountPassword
+    utilities.handleErrors(accountController.updateAccountPassword)
 )
 
 
